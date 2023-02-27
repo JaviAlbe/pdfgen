@@ -1,11 +1,17 @@
 import React from "react";
-import './App.css';
+import Body from './components/MainContainer/mainContainer'
+import AppBar from "./components/AppBar/appBar";
+import SidePanel from "./components/SidePanel/sidePanel";
 
 function App() {
   return (
       <div>
-          <h1>Hello world!</h1>
-          <p>This is dog</p>
+          <AppBar />
+          <div>
+              <Body />
+              <SidePanel />
+          </div>
+
       </div>
   );
 }
