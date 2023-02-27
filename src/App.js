@@ -1,12 +1,12 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
-import Dashboard from "./template/Dashboard";
 
 function App() {
   return (
-    <div className="App">
-        <Dashboard />
-    </div>
+      <div>
+          <h1>Hello world!</h1>
+          <p>This is dog</p>
+      </div>
   );
 }
 
