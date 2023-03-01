@@ -1,5 +1,6 @@
 .container {
-    background-color: #383838;
+    background-color: #22272e;
+    flex-grow: 2;
 }
 .title {
     font-size: 36px;

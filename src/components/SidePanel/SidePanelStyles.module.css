@@ -1,0 +1,22 @@
+.container {
+    background-color: #2d333b;
+    flex-grow: 1;
+    max-width: 450px;
+    border-right: 1px solid #c7c7c7;
+    overflow-y: scroll;
+    height: 100vh;
+    /*-ms-overflow-style: none;  !* IE and Edge *!*/
+    /*scrollbar-width: none;*/
+}
+.container::-webkit-scrollbar {
+    display: none;
+}
+.title {
+    font-size: 36px;
+    color: #fff;
+}
+
+.text {
+    font-size: 18px;
+    color: #fff;
+}

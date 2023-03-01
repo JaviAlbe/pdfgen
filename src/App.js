@@ -1,19 +1,15 @@
 import React from "react";
-import Body from './components/MainContainer/mainContainer'
-import AppBar from "./components/AppBar/appBar";
-import SidePanel from "./components/SidePanel/sidePanel";
+import Body from './components/MainContainer/MainContainer'
+import SidePanel from "./components/SidePanel/SidePanel";
+import styles from './App.module.css'
 
 function App() {
-  return (
-      <div>
-          <AppBar />
-          <div>
-              <Body />
+    return (
+        <div className={styles.body}>
               <SidePanel />
+              <Body />
           </div>
-
-      </div>
-  );
+    );
 }
 
 export default App;
