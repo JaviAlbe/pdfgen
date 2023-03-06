@@ -3,12 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux';
+import allReducers from './redux/reducers/combinedReducers'
+/** We need the Provider object to wrap the App inside it so every app component has access to the store*/
+import { Provider } from 'react-redux'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+/** The store is created and takes the combinedReducer as a parameter*/
+const store = createStore(allReducers)
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <Provider store={store}>
+        <App />
+    </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
