@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './TrainingCardStyles.module.css'
 
-const TrainingCard = ({ title, content }) => {
+const TrainingCard = ({ }) => {
     return (
         <div className={styles.card}>
             <h3>This is a card</h3>

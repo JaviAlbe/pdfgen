@@ -1,13 +1,24 @@
 .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: normal;
     background-color: #22272e;
     flex-grow: 2;
 }
 .title {
     font-size: 36px;
     color: #fff;
+    margin-left: 16px;
 }
 
 .text {
     font-size: 18px;
     color: #fff;
+}
+
+.myButton {
+    font-size: 18px;
+    color: #fff;
+    height: 50px;
+    width: 150px;
 }
