@@ -1,20 +1,26 @@
 import React from 'react';
 import styles from './PDFPage.module.css'
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
 import TrainingCard from "../TrainingCard/TrainingCard";
+import {getCards} from "../../redux/actions/actions";
+
 
 const PDFPage = () => {
 
-    const getCards = useSelector(state => state.cards)
+    const dispatch = useDispatch()
+
+    const getAllCards = () => {
+        return dispatch(getCards)
+    }
 
 
     const renderCards = () => {
-        if(getCards.length === 0){
+        if(getAllCards.length === 0){
             return <p>The list of cards is empty</p>
         }else{
             return (
                 <div>
-                    {getCards.map((card, index) => (
+                    {getAllCards.map((card, index) => (
                         <TrainingCard key={index} title={card.title} description={card.description} />
                     ))}
                 </div>

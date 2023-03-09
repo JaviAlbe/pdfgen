@@ -1,10 +1,16 @@
 
+const initialState = {
+    listOfCards: []
+};
 
-
-const cardReducer = (state = [], action) => {
+const cardReducer = (state = initialState, action) => {
     switch (action.type){
         case 'ADD_CARD':
-            return state.push(action.payload)
+            return {
+                ...state,
+                cardList: [...state.cardList, action.payload]
+            }
+
         case 'REMOVE_CARD':
             if(state.length > 0){
                 return state.pop()
