@@ -11,7 +11,10 @@ import { Provider } from 'react-redux'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 /** The store is created and takes the combinedReducer as a parameter*/
-const store = createStore(allReducers)
+const store = createStore(
+    allReducers, /* preloadedState, */
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 root.render(
     <Provider store={store}>

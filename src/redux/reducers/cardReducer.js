@@ -1,6 +1,6 @@
 
 const initialState = {
-    listOfCards: []
+    listOfCards: [{title:'Hello', description:'this is a chachicription'}]
 };
 
 const cardReducer = (state = initialState, action) => {
@@ -8,7 +8,7 @@ const cardReducer = (state = initialState, action) => {
         case 'ADD_CARD':
             return {
                 ...state,
-                cardList: [...state.cardList, action.payload]
+                listOfCards: [...state.listOfCards, action.payload]
             }
 
         case 'REMOVE_CARD':
