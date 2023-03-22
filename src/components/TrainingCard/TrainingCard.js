@@ -1,18 +1,23 @@
 import React from 'react';
 import styles from './TrainingCardStyles.module.css'
-import {useSelector, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 import {addCard, removeCard} from '../../redux/actions/actions'
 
 
-const TrainingCard = ({title, description}) => {
+const TrainingCard = ({id, title, description, link, active}) => {
 
-    const cardToAdd = {title: title, description: description}
+    const clickedCard = {id: id, title: title, description: description, active: active}
     const dispatch = useDispatch()
 
+
     return (
-        <div className={styles.card} onClick={() => dispatch(addCard(cardToAdd))}>
-            <h3>{title}</h3>
-            <p>{description}</p>
+        <div className={styles.card}>
+            <div onClick={() => dispatch(addCard(clickedCard))}>
+                <h3>{title}</h3>
+                <p>{description}</p>
+                <a href={link}>Watch in youtube</a>
+            </div>
+            <button onClick={() => dispatch(removeCard(clickedCard))}>Remove Card</button>
         </div>
     );
 };

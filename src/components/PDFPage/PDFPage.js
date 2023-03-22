@@ -15,7 +15,12 @@ const PDFPage = () => {
             return (
                 <div>
                     {cards.map((card, index) => (
-                        <TrainingCard key={index} title={card.title} description={card.description} />
+                        <TrainingCard
+                            key={index}
+                            id={card.id}
+                            title={card.title}
+                            description={card.description}
+                            active={card.active} />
                     ))}
                 </div>
             );
@@ -26,6 +31,7 @@ const PDFPage = () => {
         <div className={styles.container}>
             <p className={styles.title}>This is a page</p>
             {renderCards()}
+            <button onClick={() => console.log('download pdf clicked')}>Download PDF</button>
         </div>
     );
 }

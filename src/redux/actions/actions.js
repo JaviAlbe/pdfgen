@@ -7,9 +7,10 @@ export const addCard = (card) => {
     }
 }
 
-export const removeCard = () => {
+export const removeCard = (card) => {
     return {
         type: 'REMOVE_CARD',
+        payload: card
     }
 }
 

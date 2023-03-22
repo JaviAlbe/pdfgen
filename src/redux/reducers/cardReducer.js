@@ -1,6 +1,6 @@
 
 const initialState = {
-    listOfCards: [{title:'Hello', description:'this is a chachicription'}]
+    listOfCards: []
 };
 
 const cardReducer = (state = initialState, action) => {
@@ -12,9 +12,9 @@ const cardReducer = (state = initialState, action) => {
             }
 
         case 'REMOVE_CARD':
-            if(state.length > 0){
-                return state.pop()
-            } else break
+            const idToRemove = action.payload.id;
+            const newListOfCards = state.listOfCards.filter(card => card.id !== idToRemove);
+            return { ...state, listOfCards: newListOfCards };
 
         case 'GET_CARDS':
             return state
