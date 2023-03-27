@@ -1,8 +1,8 @@
 
 
-export const addCard = (card) => {
+export const clickCard = (card) => {
     return {
-        type: 'ADD_CARD',
+        type: 'CLICK_CARD',
         payload: card
     }
 }
