@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './MainContainerStyles.module.css'
 import PDFPage from "../PDFPage/PDFPage";
+import { PDFDownloadLink, Page, Document } from '@react-pdf/renderer';
+
 
 const mainContainer = () => {
     return (

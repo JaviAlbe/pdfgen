@@ -14,6 +14,14 @@
     font-size: 36px;
     color: #d7d7d7;
 }
-p {
 
+.page {
+    flexDirection: 'row';
+    backgroundColor: '#E4E4E4';
+}
+
+.section {
+    margin: 10px;
+    padding: 10px;
+    flexGrow: 1;
 }

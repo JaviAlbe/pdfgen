@@ -1,10 +1,40 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './PDFPage.module.css'
 import { useSelector } from "react-redux";
 import TrainingCard from "../TrainingCard/TrainingCard";
+import {Document, Page, PDFDownloadLink, View} from "@react-pdf/renderer";
+import Card from './card'
 
 
 const PDFPage = () => {
+
+    const PDFComponent = () => {
+        const [numPages, setNumPages] = useState(null);
+
+        function onDocumentLoadSuccess({ numPages }) {
+            setNumPages(numPages);
+        }
+
+        return (
+            <div>
+                <PDFDownloadLink
+                    document={
+                        <Document>
+                            <Page size="A4" style={styles.page}>
+                                <View style={styles.section}>
+                                    <Card />
+                                </View>
+                            </Page>
+                        </Document>
+                    }
+                    fileName="my-document.pdf">
+                    {({ blob, url, loading, error }) =>
+                        loading ? 'Loading document...' : 'Download now!'
+                    }
+                </PDFDownloadLink>
+            </div>
+        );
+    }
 
     const pdfCards = useSelector(state => state.cards.pdfCards)
 
@@ -32,7 +62,7 @@ const PDFPage = () => {
         <div className={styles.container}>
             <p className={styles.title}>This is a page</p>
             {renderCards()}
-            <button onClick={() => console.log('download pdf clicked')}>Download PDF</button>
+            <PDFComponent />
         </div>
     );
 }
