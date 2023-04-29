@@ -8,8 +8,12 @@ import Card from './card'
 
 const PDFPage = () => {
 
-    const PDFComponent = () => {
+    const pdfCards = useSelector(state => state.cards.pdfCards)
+
+    /** Takes care of adding cards to the PDF page */
+    const PDFComponent = ({data}) => {
         const [numPages, setNumPages] = useState(null);
+        console.log('I added these card: ', pdfCards)
 
         function onDocumentLoadSuccess({ numPages }) {
             setNumPages(numPages);
@@ -21,9 +25,14 @@ const PDFPage = () => {
                     document={
                         <Document>
                             <Page size="A4" style={styles.page}>
-                                <View style={styles.section}>
-                                    <Card />
-                                </View>
+                                {data.map((card, index) => (
+                                    <View style={styles.section}>
+                                        <Card
+                                            title={card.title}
+                                            description={card.description}
+                                            link={card.link}/>
+                                    </View>
+                                ))}
                             </Page>
                         </Document>
                     }
@@ -36,8 +45,7 @@ const PDFPage = () => {
         );
     }
 
-    const pdfCards = useSelector(state => state.cards.pdfCards)
-
+    /** Renders the cards in the pdf section of the web app */
     const renderCards = () => {
         if(pdfCards.length === 0){
             return <p>The list of cards is empty</p>
@@ -62,7 +70,7 @@ const PDFPage = () => {
         <div className={styles.container}>
             <p className={styles.title}>This is a page</p>
             {renderCards()}
-            <PDFComponent />
+            <PDFComponent data={pdfCards}/>
         </div>
     );
 }

@@ -11,20 +11,26 @@ const styles = StyleSheet.create({
         borderRadius: '5px'
     },
     title: {
+        color:'#a40e52',
         fontSize: '18px',
         fontWeight: 'bold',
         marginBottom: '5px'
     },
-    body: {
+    description: {
         fontSize: '14px'
+    },
+    link: {
+        fontSize: '14px',
+        color:'#107fcb'
     }
 });
 
-const card = () => {
+const card = ({ title, description, link }) => {
     return (
         <View style={styles.cardContainer}>
-            <Text style={styles.title}>This is a title</Text>
-            <Text style={styles.body}>Wanda wanda olowokanda wanda wanita wanda</Text>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.description}>{description}</Text>
+            <Text style={styles.link}>{link}</Text>
         </View>
     )
 }
