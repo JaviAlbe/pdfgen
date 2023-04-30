@@ -30,7 +30,7 @@ const card = ({ title, description, link }) => {
         <View style={styles.cardContainer}>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.description}>{description}</Text>
-            <Text style={styles.link}>{link}</Text>
+            <Text style={styles.link}>Watch in Youtube</Text>
         </View>
     )
 }
